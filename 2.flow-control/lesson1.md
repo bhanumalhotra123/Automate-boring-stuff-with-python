@@ -1,4 +1,4 @@
-## Flow Control
+# Flow Control
 
 Flow control statements can decide which python instructions to execute under which conditions.
 
@@ -35,7 +35,7 @@ Can be stored in variables:
 True
 ```
 
-# Comparison Operators
+## Comparison Operators
 
 ```py
 >>> 42 == 42
@@ -88,7 +88,7 @@ True
 >>>
 ```
 
-# Boolean Operators
+## Boolean Operators
 
 
 - and
@@ -124,6 +124,6 @@ False
 True
 ```
 
-# Mixing Boolean and Comparision Operators
+## Mixing Boolean and Comparision Operators
 
 
