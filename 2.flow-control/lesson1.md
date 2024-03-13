@@ -91,4 +91,39 @@ True
 # Boolean Operators
 
 
+- and
+- or
+- not
+
+
+and
+```py
+>>> True and True
+True
+>>> True and False
+False
+>>> False and True
+False
+>>> False and False
+False
+```
+
+or
+```py
+>>> True or False
+True
+>>> False or False
+False
+```
+
+not
+```py
+>>> not True
+False
+>>> not not True
+True
+```
+
+# Mixing Boolean and Comparision Operators
+
 
