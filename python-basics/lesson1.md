@@ -12,9 +12,10 @@ Operator - +
 
 
 Even the following is an expression without an operator
+```
 >>> 2
 2
-
+```
 
 http://nostarch.com/automatestuff/
 
@@ -180,4 +181,126 @@ Invalid
 - special characters like $ are not allowed
 - special characters like ' are not allowed
 
-Variables are case sensitive SPAM and spam are different variables. It is a python convention o starte
+Variables are case sensitive SPAM and spam are different variables. It is a python convention to start variable with lower case.
+
+camlecase - lookLikeThis
+underscores - look_like_this
+
+A good variable name describes the data it contains.
+
+
+# First Program
+
+
+```py
+#this program says hello and asks for my name
+print('Hello World')
+print('What is your name?') # ask for their name
+myName=input()
+print('It is a good to meet you,' + myName)
+print('The length of your name is:')
+print(len(myName))
+```
+
+```
+$ python firstprogram.py 
+Hello World
+What is your name?
+Bhanu
+It is a good to meet you,Bhanu
+The length of your name is:
+5
+```
+
+
+```py
+#this program says hello and asks for my name
+print('What is your age?')
+myAge=input()
+print('You will be ' + str(int(myAge)+1) + '' +' in a year.')
+```
+
+```
+$ python firstprogram.py 
+What is your age?
+1
+You will be 2 in a year.
+```
+
+
+print is a function, string value passed to it is a argument.
+
+You can also use print() to give an empty line.
+
+input() function waits for the user to type some text on the keyboard and press enter.
+
+len() function evaluates to the integer value of the number of characters in that string.
+
+# The str(), int() and float() functions.
+
+```py
+$ python
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> str(0) 
+'0'
+>>> 0
+0
+>>> str(0)
+'0'
+>>> '-99' 
+'-99'
+>>> int('-99') 
+-99
+>>> '3.14' 
+'3.14'
+>>> float('3.14') 
+3.14
+>>>
+```
+
+input() function always returns a string
+
+```py
+>>> spam = input()
+55
+>>> spam
+'55'
+to use it mathematicaly further
+>>> spam = int(spam) 
+>>> spam
+55
+```
+
+If you pass any value to int it can't evaluate it will throw error.
+
+```py
+
+>>> int('99.9') 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '99.9'
+```
+
+If you need to round a floating number down
+
+```py
+>>> int(99.9) 
+99
+```
+
+
+Integer can be equal to floating number
+```py
+>>> 42 == 42.00
+True
+>>> 42 = '42' 
+  File "<stdin>", line 1
+    42 = '42'
+    ^^
+SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+>>>
+
+
+-------------THE END-------------------------------
+```
