@@ -1,9 +1,10 @@
+```py
 $ python
 Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 2+2
 4
-
+```
 
 Expression - 2+2
 Values 2
@@ -18,7 +19,7 @@ Even the following is an expression without an operator
 http://nostarch.com/automatestuff/
 
 Here's the table with operators sorted by precedence:
-
+```
 | Operator | Description | Example |
 |----------|-------------|---------|
 | ** | Exponentiation | 2 ** 3 gives 8 |
@@ -62,8 +63,8 @@ Here's the table with operators sorted by precedence:
 | \|= | Bitwise OR and assign | x \|= 3 (equivalent to x = x \| 3) |
 | <<= | Left shift and assign | x <<= 2 (equivalent to x = x << 2) |
 | >>= | Right shift and assign | x >>= 2 (equivalent to x = x >> 2) |
-
-
+```
+```py
 $ python
 Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -80,10 +81,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> (5 - 1)* ((7+1)/(3-1)) 
 16.0
 >>>
-
+```
 python will keep on evaluating parts of the expression until it becomes a single value.
 
-
+```py
 >>> (5 - 1)* ((7+1)/(3-1)) 
 16.0
 >>>
@@ -98,6 +99,85 @@ SyntaxError: invalid syntax
              ^
 SyntaxError: invalid syntax
 >>>
+```
+
+If you type a bad instruction python responds with an error message.
 
 
-If you type a bad instruction python responds with an error message
+# The integer, floating point and string data types
+
+Expression = values combined with operators (It always evaluate down to a single value)
+
+Data type is category for values and every value belongs to exactly one data type.
+
+Common Data types
+- Integers
+-  Floating-point numbers
+-  Strings
+  
+```
+>>> 'Hello World!
+  File "<stdin>", line 1
+    'Hello World!
+    ^
+SyntaxError: unterminated string literal (detected at line 1)        -----------> If you get this error probably you forgot the last '
+>>> 'Hello World!'
+'Hello World!'
+```
+
+# String Concatenation and Replication
+
+The meaning of operator may change based on data types of the values next to it.
+
+```
+>>> 'Bhanu' + 'Malhotra' 
+'BhanuMalhotra'
+
+>>> 'Bhanu'+ 1 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "int") to str
+
+>>> 'Bhanu' * 5                 -------> String Replication
+'BhanuBhanuBhanuBhanuBhanu'
+>>>
+
+Doesn't make sense:
+
+>>> 'Bhanu' * 5.0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'float'
+>>> 'Bhanu' * 'Malhotra' 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'
+>>>
+```
+
+# Storing a value in Variables
+If you want to use the result of an evaluated expression later in your program, you can save it inside a variable.
+When a variable is assigned a new value, the old value is forgotten.
+  
+assignment statements:
+```
+>>> api_url= 'xyz.com'
+>>> api_url
+'xyz.com'
+
+
+>>> api_url= 'xyz.com'
+>>> api_url
+'xyz.com'
+```
+
+# Variable Names
+Invalid 
+- hyphens are not allowed
+- spaces are not allowed
+- can't begin with a number
+- can't be a number
+- special characters like $ are not allowed
+- special characters like ' are not allowed
+
+Variables are case sensitive SPAM and spam are different variables. It is a python convention o starte
