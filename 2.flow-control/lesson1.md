@@ -292,7 +292,7 @@ If you never enter your name , then While loop condtion will never be False, and
 ## break Statements
 If the execution reaches a break statement, it immediately exits the while loop's clause
 
-```
+```py
 while True:   # the expression True evaluates down to value True
 # the  program execution will always enter the loop and will exit only when a break statement is executed
     print('Please type your name')
