@@ -352,5 +352,189 @@ While loop keeps looping while its condition is True , but what if you want to e
 
 We do this using for loop and the range() function.
 
-Page 54
-Page 
+- The for keyword
+- A variable name
+- The in keyword
+- A call to the range() method with up to three integers passed to it
+- A colon
+- Starting on the next line, an indented block of code (called the for clause)
+
+```py
+print('My name is')
+for i in range(5):
+    print('Bhanu five times ('+str(i) +')  ')
+```
+```
+$ python p.py
+My name is
+Bhanu five times (0)
+Bhanu five times (1)
+Bhanu five times (2)
+Bhanu five times (3)
+Bhanu five times (4)
+```
+
+You can only use break and continue statements inside __for__ and __while__ loop only.
+
+
+adding numbers from 0 to 100
+
+```py
+total = 0
+for num in range(101):
+    total = total + num
+print(total)
+
+```
+```py
+$ python p.py
+5050
+```
+
+> You can use a while loop to do the same thing as a for loop; for loops are just more concise.
+
+```py
+print('My name is')
+i = 0
+while i < 5:
+    print('Bhanu five times('+ str(i) +')')
+    i += 1
+```
+
+```
+$ python p.py
+My name is
+Bhanu five times(0)
+Bhanu five times(1)
+Bhanu five times(2)
+Bhanu five times(3)
+Bhanu five times(4)
+
+```
+
+### The starting, stopping, and stepping Arguments to range()
+
+Some functions can be called with multiple arguments seperatedby a comman, and range is one of them.
+
+```py
+for i in range(2,5):
+    print(i)
+```
+```
+$ python p.py
+2    ------> starts from first value only.
+3
+4    --------> doesn't print the last 5
+```
+
+The range function can also be called with three arguments. The first two argumentswill be the start and stop values, and third will be the step argument.
+
+```py
+
+for i in range(2,10, 3):
+    print(i)
+```
+
+```
+$ python p.py
+2
+5
+8
+```
+
+example2 with -values
+```py
+for i in range(2,-10, -2):
+    print(i)
+```
+
+```
+$ python p.py
+2
+0
+-2
+-4
+-6
+-8
+
+```
+
+## Importing Modules
+
+All python programs can call a basic set of functions called built-in functions, including the print(), input(), and len() functions.
+Python also comes with a set  of modules called standard library.
+
+Each modules is a python program that contains a related group of functions that can be embedded in your programs.
+
+
+
+Before you can use functions included in a module, you must import the module with an import statement.
+
+- The import keyword
+- The name of the module
+- Optionally, more module names, as long as they are seperated by commas.
+
+
+```py
+import random
+for i in range(5):
+    print(random.randint(1,100))
+```
+
+```
+$ python p.py
+69
+59
+29
+93
+100
+```
+
+you must type random in front of randint so as to let python know in which module it should look for the randint function.
+
+
+### from import Statements
+
+- from keyword
+- module name
+- import keyword
+- *
+
+with this you won't have to add random inititaly with randint while using it in code.
+```py
+from random import *
+for i in range(5):
+    print(randint(1,100))
+```
+
+```
+$ python p.py
+27
+44
+77
+7
+88
+```
+
+## Ending a program early with sys.exit()
+
+How to terminate the program?
+
+```py
+import sys
+
+while True:
+    print('Type exit to exit')
+    response = input()
+    if response == 'exit':
+        sys.exit()
+    print('You typed ' + response + '.')
+    print("this won't be typed")
+
+```
+
+```
+$ python p.py
+Type exit to exit
+exit
+```
