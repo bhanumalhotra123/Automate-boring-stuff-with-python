@@ -322,4 +322,61 @@ Traceback (most recent call last):
 UnboundLocalError: cannot access local variable 'hills' where it is not associated with a value
 ```
 
-Page 72
+
+
+## Exception Handling
+
+You want the program to detect errors, handle them, then continue to run.
+
+Errors can be handled by try and except statements.
+
+The code that could potentially have an error is put in a try clause.
+The program execution moves to the start of a following except clause if an error happens.
+
+```py
+def spam(divideBy):
+    try:
+        return 42 / divideBy
+    except ZeroDivisionError:
+        print('Error: Invalid Argument')
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))
+```
+
+```
+python p.py
+21.0
+3.5
+Error: Invalid Argument
+None  -----> shows the function didn't return anything when divided by 0
+42.0
+```
+
+
+
+
+Any error that occurs in function calls in a try block will also be caught.
+```py
+def spam(dividedBy):
+    return 42 / dividedBy
+try: 
+    print(spam(2))
+    print(spam(12))
+    print(spam(0))
+    print(spam(1))
+except ZeroDivisionError:
+    print('Error: Invalid Argument')
+```
+
+```
+python p.py
+21.0
+3.5
+Error: Invalid Argument
+```
+The reason print(spam(1)) is never executed is because once the execution jumps to the code in the except clause. Instead it just keeps moving down as normal.
+
+## A Short Program: Guess the Number
