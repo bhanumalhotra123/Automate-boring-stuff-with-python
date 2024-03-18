@@ -385,6 +385,7 @@ The reason print(spam(1)) is never executed is because once the execution jumps 
 # this is a guess number game
 import random 
 secretNumber = random.randint(1,20)
+#generates a number for the user to guess
 print('I am thinking of a number between 1 and 20')
 
 # Ask the player to guess 6 times.
@@ -429,3 +430,5 @@ Take a guess
 4
 Good job! You guessed my number in 5 guesses!
 ```
+
+
