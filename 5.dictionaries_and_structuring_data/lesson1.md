@@ -261,7 +261,87 @@ Increment the count of the character by 1.
 Print the count dictionary containing the character counts.
 
 
-Page 111
 
 ## Pretty Printing
+
+It is more useful when using nested dictionaries
+
+pprint() and pformat() will preety print a dictionary's values
+
+```py
+import pprint
+
+message = 'It was a bright hot day in April, and the clocks were striking thirteen.'
+
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+pprint.pprint(count)
+```
+
+```
+python p.py       
+{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ 'a': 4,
+ 'b': 1,
+ 'c': 2,
+ 'd': 2,
+ 'e': 5,
+ 'g': 2,
+ 'h': 4,
+ 'i': 6,
+ 'k': 2,
+ 'l': 2,
+ 'n': 4,
+ 'o': 2,
+ 'p': 1,
+ 'r': 5,
+ 's': 3,
+ 't': 7,
+ 'w': 2,
+ 'y': 1}
+
+```
+
+pprint.pprint(count)
+print(pprint.pformat(count))
+
+these to are same
+
+
+
+## Using Data Structures to Model Real-World Things
+
+### A Tic-Tac-Toe Board
+
+```py
+theBoard = {'top-L':' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L':' ','mid-M':' ','mid-R':' ',
+            'low-L':' ','low-M':' ','low-R':' '}
+
+
+def printBoard(board):
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R']  )
+    print('-+-+-')
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R']  )
+    print('-+-+-')
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R']  )
+
+printBoard(theBoard)
+```
+
+```py
+python p.py
+ | | 
+-+-+-
+ | |
+-+-+-
+ | |
+```
 
