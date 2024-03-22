@@ -499,6 +499,237 @@ If values appear multiple times in a list, only the first instance of the value 
 __del__ statement is good when you know the index of the value you want to remove from the list.
 __remove()__ method is good when you know the value you want to remove from the list.
 
+
 ### Sorting the values in a List with the sort() Method.
 
-Page 91
+- sort() method sorts the list in place; don't try to capture the return value by writing code like spam = spam.sort()
+- Can't sort lists which have both number and string values in them.
+- 
+
+```py
+>>> spam = [2, 3, 3.14, -1, -3] 
+>>> spam.sort()
+>>> spam
+[-3, -1, 2, 3, 3.14]
+
+>>> spam = ['a',' d', 'y', 'c', 'f', 'k',' b'] 
+>>> spam.sort()
+>>> spam
+[' b', ' d', 'a', 'c', 'f', 'k', 'y']
+>>>
+```
+
+```py
+>>> spam.sort(reverse=True) 
+>>> spam
+['y', 'k', 'f', 'c', 'a', ' d', ' b']
+```
+
+
+ASCIIbetical order: Upper case letters come before lower case.
+
+```py
+>>> spam = ['a','D', 'y', 'C', 'f', 'K','b']   
+>>> spam.sort()
+>>> spam
+['C', 'D', 'K', 'a', 'b', 'f', 'y']
+```
+
+If you need to sort the values in regular alphabetical order, pass str.lower for the key keyword argument in the sort() method call.
+
+```py
+>>> spam = ['a','D', 'y', 'C', 'f', 'K','b']   
+>>> spam.sort(key=str.lower)
+>>> spam
+['a', 'b', 'C', 'D', 'f', 'K', 'y']
+>>>
+```
+
+### Example Program: Magic 8 Ball with a List
+
+```py
+import random
+
+messages = ['It is certain',
+            'It is decidedly so',
+            'Yes definitely',
+            'Reply hazy try again',
+            'Ask again later',
+            'Concentrate and ask again',
+            'My reply is No',
+            'Outlook not so good',
+            'Very doubtful']
+print(messages[random.randint(0, len(messages) -1)])
+```
+
+```
+python p.py
+Outlook not so good
+
+python p.py
+Outlook not so good
+
+python p.py
+Reply hazy try again
+
+python p.py
+My reply is No
+```
+
+## List like types: Strings and Tuples
+
+- Lists are not the only data types that represent ordered sequences of values.
+- Strings and lists are actually similar, if you consider a string to be a "list" of single text characters.
+
+Many of the things you can do with lists can also be done with strings:
+- indexing
+- slicing
+- using them for loops
+- with len()
+- in and not in operators
+
+
+```py
+>>> name = 'Bhanu' 
+>>> name[0]
+'B'
+
+
+>>> name[-1] 
+'u'
+
+
+>>> name[0:3] 
+'Bha'
+
+
+>>> 'Bh' in name
+True
+
+
+>>> 'bh' in name 
+False
+
+
+>>> 'bh' not in name 
+True
+
+
+>>> for i in name: 
+...   print('***' + i + '***')
+...
+***B***
+***h***
+***a***
+***n***
+***u***
+>>>
+```
+
+
+## Mutable and Immutable Data Types
+
+List is mutable - It can have values added, removed, or changed. 
+
+String is immutable - It cannot be changed
+
+```py
+
+# can't change a character in a string 
+
+>>> name = 'you are a cat' 
+>>> name[4] = 'the' 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+
+
+# Way to mutate a string   
+
+>>> name = 'you are a cat' 
+>>> name = name[0:7] + ' not ' + name[8:] 
+>>> name
+'you are not a cat'
+>>>
+```
+
+
+#### Even though list value is mutable, the following code does not modify the list eggs:
+
+```py
+>>> eggs = [1, 2, 3] 
+>>> eggs = [4, 5, 6] 
+>>> eggs
+[4, 5, 6]
+
+```
+
+Here an entirely new and different list value([4, 5, 6]) is overwriting the list value ([1, 2, 3]).
+
+If we want to actually modify the original list in eggs to contain [4, 5, 6] you will need to do the following.
+
+```py
+>>> eggs = [1, 2, 3] 
+>>> del eggs[0]
+>>> del eggs[1] 
+>>> del eggs[2] 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> eggs            
+[2]
+>>> del eggs[0] 
+>>> eggs        
+[]
+>>> eggs.append(4)  
+>>> eggs.append(5)  
+>>> eggs.append(6)  
+>>> eggs        
+[4, 5, 6]
+>>>
+```
+
+This way the variable isn't changed.
+
+
+## The Tuple Data Type
+
+- Identical to list
+- Different in 2 ways:
+    - It is typed using () and not [].
+    - Tuple Data type is immutable(can't be changed) whereas list is mutable.
+
+```py
+>>> eggs = (1, 3, 'hello', '5.23') 
+
+>>> eggs[0] 
+1
+
+>>> eggs[2:4] 
+('hello', '5.23')
+```
+
+```py
+>>> eggs
+(1, 3, 'hello', '5.23')
+>>> eggs[2]= 99
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+
+If in case you have only one value in your tuple, you need to indicate this by placing a trailing comma after the value inside the parantheses.
+
+```py
+>>> type(('hello',)) 
+<class 'tuple'>
+>>> type(('hello'))  
+<class 'str'>
+```
+
+Benefits of tuple 
+- You can use tuples to convey to the reader of your code that you don't intend for that squence of values to change.
+
+### Converting Types with list() and tuple() Functions
+
+Page 97
