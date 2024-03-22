@@ -732,4 +732,112 @@ Benefits of tuple
 
 ### Converting Types with list() and tuple() Functions
 
-Page 97
+Just like how str(42) will return string version of number 42 i.e '42'. the functions list() and tuple() will return list and tuple versions of the values passed to them
+
+
+```py
+>>> tuple([1, 'bhanu'])
+(1, 'bhanu')
+>>> list[('1.3, 2, 'joy'')] 
+
+
+>>> list('hello') 
+['h', 'e', 'l', 'l', 'o']
+
+
+>>> list((1.3, 2, 'joy'))   
+[1.3, 2, 'joy']
+>>>
+```
+
+
+## References
+
+Take a look at the following and notice how lists work differently.
+
+```py
+>>> spam = 42
+>>> cheese = spam
+>>> spam = 100
+>>> spam
+100
+>>> cheese
+42
+```
+
+
+```py
+>>> spam = [1, 2, 3, 4, 5, 6] 
+>>> cheese = spam
+>>> cheese[1]= 'wubalubadubdub' 
+>>> cheese
+[1, 'wubalubadubdub', 3, 4, 5, 6]
+>>> spam
+[1, 'wubalubadub dub', 3, 4, 5, 6]
+```
+Isn't this weird? From looking at the code change it seems like only the cheese list is changed.
+
+Explanation 
+- When you create the list, you assign a reference to it in the spam variable.
+- copies only the list reference in spam to cheese, not the list value itself.
+- This means the values stored in spam and cheese now both refer to the same list.
+- There is only one underlying list because the list itself was never actually copied.
+
+#### List variables don't actually contain lists instead they contain references to the lists.
+
+For strings and integer values, variables simply contain the string or integer value.
+ 
+
+## Passing References
+
+References are important to understand how arguments get passed to functions.
+
+When a function is called , the values of the arguments are copied to the parameter variables.
+
+A copy of the reference id is used for the parameter.
+
+
+
+```py
+def water(someParameters):
+    someParameters.append('hello')
+
+spam = [1,2,3,4]
+
+water(spam)
+print(spam)
+```
+
+```
+python p.py
+[1, 2, 3, 4, 'hello']
+```
+
+Forgetting that python handles list and variables this way can lead to bugs! BE CAREFUL
+
+## The copy module's copy() and deepcopy() functions.
+
+At times if function modifies the list or dictionary that is passed, you may not want these changes in the orignal list.
+
+
+```py
+>>> import copy
+>>> spam = [1,2,3,4] 
+
+>>> cheese = copy.copy(spam) 
+
+>>> cheese[1]= 33
+
+>>> spam
+[1, 2, 3, 4]
+
+>>> cheese
+[1, 33, 3, 4]
+>>>
+```
+
+
+If list you need to copy contains lists, use deepcopy() function of copy module.
+As deepcopy() copies the inner lists as well.
+
+ If you need complete independence between the original and copied list, especially when dealing with nested mutable objects, deep copy is the appropriate choice.
